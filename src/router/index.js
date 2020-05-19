@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Demo1 from '../components/Demo1.vue'
+import Form from '../components/Form.vue'
 
 Vue.use(VueRouter)
 // 路由规则
@@ -13,6 +14,11 @@ const routes = [
     path: '/demo1',
     name: 'Demo1',
     component: Demo1
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: Form
   }
 ]
 
