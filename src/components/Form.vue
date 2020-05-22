@@ -39,8 +39,10 @@ export default {
     },
     // 预验证
     validForm() {
-      this.$refs.FormRef.validate(valid => {
-        console.log(valid);
+      this.$refs.FormRef.validate(async valid => {
+        if (!valid) return
+        const {data:res} = await this.$http.post("token", this.Form)
+        console.log(res)
       });
     }
   }
