@@ -1,8 +1,8 @@
 <template>
   <div class="form_container">
     <el-form :model="Form" :rules="FormRules" ref="FormRef" label-width="100px">
-      <el-form-item prop="username" label="用户名">
-        <el-input v-model="Form.username"></el-input>
+      <el-form-item prop="account" label="用户名">
+        <el-input v-model="Form.account"></el-input>
       </el-form-item>
       <el-form-item prop="password" label="密码">
         <el-input v-model="Form.password"></el-input>
@@ -20,11 +20,11 @@ export default {
   data() {
     return {
       Form: {
-        username: "",
+        account: "",
         password: ""
       },
       FormRules: {
-        username: [
+        account: [
           { required: true, message: "请输入用户名", trigger: "blur" }
         ],
         password: [{ required: true, message: "请输入密码", trigger: "blur" }]
@@ -43,6 +43,8 @@ export default {
         if (!valid) return
         const {data:res} = await this.$http.post("token", this.Form)
         console.log(res)
+        window.sessionStorage.setItem('token', res.token)
+        this.$router.push('/demo1')
       });
     }
   }

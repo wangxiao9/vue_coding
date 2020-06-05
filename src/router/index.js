@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/demo1'
+    redirect: '/form'
   },
   {
     path: '/demo1',
@@ -25,5 +25,19 @@ const routes = [
 const router = new VueRouter({
   routes
 })
+
+// 路由导航守卫
+router.beforeEach((to, from, next) => {
+  /**
+   * to: 将要访问的路径
+   * from: 从哪个路径挑战
+   * next: 放行
+   */
+  if (to.path === '/form') return next()
+  const tokenStr = window.sessionStorage.getItem('token')
+  if (!tokenStr) return next('/form')
+  next()
+})
+
 
 export default router
