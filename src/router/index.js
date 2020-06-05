@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Demo1 from '../components/Demo1.vue'
 import Form from '../components/Form.vue'
+import Father from '../components/component/Father.vue'
+import Son from '../components/component/Son.vue'
+
 
 Vue.use(VueRouter)
 // 路由规则
@@ -19,6 +22,16 @@ const routes = [
     path: '/form',
     name: 'Form',
     component: Form
+  },
+  {
+    path: '/father',
+    name: 'Father',
+    component: Father
+  },
+  {
+    path: '/son',
+    name: 'Son',
+    component: Son
   }
 ]
 
