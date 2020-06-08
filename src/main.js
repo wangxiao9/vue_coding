@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 import axios from 'axios'
+import store from '../store.js'
 
 // 挂载全局对象
 Vue.prototype.$http = axios
@@ -13,6 +14,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:5000/v1'
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')
